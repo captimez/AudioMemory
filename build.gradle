@@ -8,6 +8,16 @@ sourceSets.main.java.srcDirs = ['src']
 group = 'de.hsrm.mi.eibo'
 version = '1.0-SNAPSHOT'
 
+sourceSets{
+    main {
+        resources {
+            srcDirs = ['src/resources', 'src/resources/Kartenpaket/']
+        }
+    }
+}
+
+
+
 
 repositories {
     mavenCentral()

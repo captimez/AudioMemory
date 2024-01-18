@@ -1,8 +1,6 @@
 package business.services;
 
 
-import java.util.LinkedList;
-
 import business.data.Karte;
 import de.hsrm.mi.eibo.simpleplayer.SimpleAudioPlayer;
 import de.hsrm.mi.eibo.simpleplayer.SimpleMinim;
@@ -15,7 +13,7 @@ public class AudioPlayer {
 
     public void playKartenSound(Karte karte) {
         //	audioPlayer.play();
-        audioPlayer = minim.loadMP3File("Eibo test/Audio/Sounds/Kartenpaket/3/"+karte.getSoundName());
+        audioPlayer = minim.loadMP3File("resources/Audio/Sounds/Kartenpaket/3/"+karte.getSoundName());
         audioPlayer.play();
 
     }
