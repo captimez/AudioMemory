@@ -1,0 +1,13 @@
+#HighscoreTabelle 2 Spieler
+#ENTRY
+Unbekannt--670
+#ENTRY
+Unbenannt--555
+#ENTRY
+Unbekannt--100
+#ENTRY
+Unbekannt--70
+#ENTRY
+Neu Dazu--50
+#TOTALENTRYS
+5

@@ -1,0 +1,11 @@
+#HighscoreTabelle 1 Spieler
+#ENTRY
+Unbekannt--670
+#ENTRY
+Unbenannt--555
+#ENTRY
+Hm--1100
+#ENTRY
+IDK--70
+#TOTALENTRYS
+4
