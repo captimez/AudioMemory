@@ -1,0 +1,23 @@
+#HighscoreTabelle 1 Spieler
+#ENTRY
+NeuMann--1775
+#ENTRY
+NeuMann--1775
+#ENTRY
+NeuMann--1775
+#ENTRY
+NeuMann--1775
+#ENTRY
+NeuMann--1775
+#ENTRY
+NeuMann--1775
+#ENTRY
+NeuMann--1775
+#ENTRY
+NeuMann--1775
+#ENTRY
+NeuMann--1775
+#ENTRY
+NeuMann--1775
+#TOTALENTRYS
+10

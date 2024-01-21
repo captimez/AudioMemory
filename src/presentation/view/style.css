@@ -1,0 +1,17 @@
+/* styles.css */
+
+.highscore-view {
+    -fx-spacing: 5;
+    -fx-alignment: center;
+}
+
+.score-label {
+    -fx-font-size: 18;
+    -fx-text-fill: #f0f0f0; /* Text color (white) */
+}
+
+.score-points-label {
+    -fx-font-size: 24;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffcc00; /* Text color (yellow) */
+}
