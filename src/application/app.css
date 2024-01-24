@@ -12,3 +12,10 @@
     -fx-pref-height: 500px;
 }
 
+.name-view {
+    -fx-background-color: #333333; /* Dark gray background */
+    -fx-alignment: center;
+    -fx-spacing: 10;
+    -fx-padding: 20;
+}
+

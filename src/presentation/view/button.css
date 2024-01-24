@@ -24,9 +24,10 @@
 /* Disabled Button Style */
 .disabled {
     -fx-cursor: not-allowed;
-    -fx-background-color: #d9d9d9;
-    -fx-text-fill: #a9a9a9;
+    -fx-background-color: #ff6961; /* Coral color */
+    -fx-text-fill: #ffffff; /* White text color */
     -fx-border-color: transparent; /* No border for disabled buttons */
+    -fx-effect: innershadow(gaussian, #ff6347, 10, 0.5, 0, 0);
 }
 
 /* Hovered Button Style */

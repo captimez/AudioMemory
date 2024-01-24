@@ -1,5 +1,7 @@
 package presentation.controller;
 
+import application.App;
+import application.ApplicationController;
 import business.services.SoloGame;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -13,11 +15,14 @@ public class SoloGameController {
 
     Node firstCardSelect = null;
     Node secondCardSelect;
+    ApplicationController controller;
 
-    public SoloGameController(SoloGameView soloGameView, SoloGame soloGame){
+    public SoloGameController(SoloGameView soloGameView, SoloGame soloGame, ApplicationController controller){
         this.soloGameView = soloGameView;
         this.soloGame  = soloGame;
         this.buttonView = soloGameView.buttonView;
+        this.controller = controller;
+        this.soloGameView.highscoreView.playerName.setText(controller.player1.getName());
 
         init();
     }

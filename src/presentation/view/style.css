@@ -15,3 +15,33 @@
     -fx-font-weight: bold;
     -fx-text-fill: #ffcc00; /* Text color (yellow) */
 }
+
+/* ArcadeStyle.css */
+
+
+
+.name-label {
+    -fx-font-size: 24;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffcc00; /* Green text color */
+}
+
+.name-field {
+    -fx-font-size: 16px;
+    -fx-background-color: #696969; /* Dim gray background color */
+    -fx-text-fill: #00FF00; /* Green text color */
+    -fx-border-color: #00FF00; /* Green border color */
+}
+
+.confirm-button {
+    -fx-background-color: #1a1a1a;
+    -fx-text-fill: #f0f0f0;
+    -fx-font-size: 16;
+    -fx-font-weight: bold;
+    -fx-border-color: #f0f0f0;
+    -fx-border-width: 2;
+}
+
+.confirm-button:hover {
+    -fx-background-color: #FFA500; /* Orange background color on hover */
+}
