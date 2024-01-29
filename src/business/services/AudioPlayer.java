@@ -13,7 +13,7 @@ public class AudioPlayer {
 
     public void playKartenSound(Karte karte) {
         //	audioPlayer.play();
-        audioPlayer = minim.loadMP3File("src\\resources\\Audio\\Sounds\\Kartenpaket\\3\\"+karte.getSoundName());
+        audioPlayer = minim.loadMP3File("src\\resources\\Audio\\Sounds\\Kartenpaket\\"+karte.getSetIndex()+"\\"+karte.getSoundName());
         audioPlayer.play();
 
     }

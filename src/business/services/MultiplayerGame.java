@@ -61,7 +61,7 @@ public class MultiplayerGame {
         this.ersteKarte = null;
         this.zweiteKarte = null;
         this.finished = false;
-        this.kartenset = kv.erstelleKartenset(3);
+        this.kartenset = kv.erstelleKartenset(kartenSetIndex);
 
 
         initSpielfeld(20,kv.kartensetAuswaehlen(this.kartenset).getKarte());

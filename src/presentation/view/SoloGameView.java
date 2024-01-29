@@ -24,12 +24,7 @@ public class SoloGameView extends VBox {
 
         this.setAlignment(Pos.CENTER); // Center the content vertically
         this.getChildren().addAll(highscoreView, buttonView);
-        ScaleTransition scaleTransition = new ScaleTransition(Duration.seconds(1), this);
-        scaleTransition.setFromX(0);
-        scaleTransition.setToX(1);
-        scaleTransition.setFromY(0);
-        scaleTransition.setToY(1);
-        scaleTransition.play();
+
     }
 
     public void blinkBackground() {

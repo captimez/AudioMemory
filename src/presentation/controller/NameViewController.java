@@ -32,10 +32,15 @@ public class NameViewController {
         nameView.confirmButton.setOnMouseClicked(event -> {
             System.out.println("name" + nameView.nameField.getText());
             player.setName(nameView.nameField.getText());
-            if(gameNext)
-                this.controller.transitionToMultiplayerGame();
-            else
-                this.controller.transitionToNameViewPlayer2();
+
+            if(this.controller.gamemode == "singleplayer"){
+                this.controller.transitionToSoloGame();
+            }else{
+                if(gameNext)
+                    this.controller.transitionToMultiplayerGame();
+                else
+                    this.controller.transitionToNameViewPlayer2();
+            }
         });
     }
 }

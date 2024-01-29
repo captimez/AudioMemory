@@ -6,16 +6,22 @@ public class Karte {
     private boolean istAusgewaelt;
     private boolean istEntfehrnt;
 
-    public Karte(String soundName, boolean istVerwendet, boolean istAusgewaelt, boolean istEntfehrnt) {
+    private int setIndex;
+
+    public Karte(String soundName,int setIndex, boolean istVerwendet, boolean istAusgewaelt, boolean istEntfehrnt) {
+        this.setIndex = setIndex;
         this.setSoundName(soundName);
         this.setIstVerwendet(istVerwendet);
         this.setIstAusgewaelt(istAusgewaelt);
         this.setIstEntfehrnt(istEntfehrnt);
     }
 
+
     public String getSoundName() {
         return this.soundName;
     }
+
+    public int getSetIndex(){ return this.setIndex;}
 
     public void setSoundName(String soundName) {
         this.soundName = soundName;

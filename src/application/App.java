@@ -6,6 +6,7 @@ import business.services.SoloGame;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
@@ -40,22 +41,26 @@ public class App extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		VBox root = new VBox();
-		root.setAlignment(Pos.CENTER);
+		//VBox root = new VBox();
+		//root.setAlignment(Pos.CENTER);
+
 
 		ApplicationController controller = new ApplicationController(primaryStage,root,player1,player2);
-		this.nameViewControllerPlayer1 = new NameViewController(this.nameViewPlayer1,player1,controller);
+		controller.transitionToMainMenu();
 
-		nameViewPlayer1.setMaxWidth(500);
-		nameViewPlayer1.getStyleClass().add("name-view");
-		root.getChildren().addAll(nameViewPlayer1);
+		root.getChildren().addAll();
 
 		// Apply CSS styles to the root
 		root.getStyleClass().add("root");
+		root.setFillWidth(true);
+		Scene scene = new Scene(root, 1280, 720);
 
-		Scene scene = new Scene(root, 800, 600);
+
 
 		// Load app.css
-		scene.getStylesheets().add(getClass().getResource("app.css").toExternalForm());
+		scene.getStylesheets().add(getClass().getResource("../presentation/view/style.css").toExternalForm());
+
+		VBox.setVgrow(root, Priority.ALWAYS);
 
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("Audio Memory");

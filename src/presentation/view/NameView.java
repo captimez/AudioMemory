@@ -7,7 +7,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
 public class NameView extends VBox {
-    Label name;
+    public Label name;
     public TextField nameField;
     public Button confirmButton;
 
@@ -25,7 +25,6 @@ public class NameView extends VBox {
         this.confirmButton = new Button("Play");
         this.confirmButton.getStyleClass().add("confirm-button");
 
-        this.getStyleClass().add("name-view");
 
         this.getChildren().addAll(name, nameField, confirmButton);
     }
