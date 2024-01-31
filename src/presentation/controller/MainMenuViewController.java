@@ -49,6 +49,8 @@ public class MainMenuViewController {
 
     private void handleHighscoreViewSelect() {
         mainMenuView.highscoreLabel.setOnMouseClicked(event -> {
+            System.out.println("Konfirm");
+            this.controller.transitionToHighscore1();
         });
     }
 

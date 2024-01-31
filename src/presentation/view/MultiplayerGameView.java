@@ -4,6 +4,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.layout.HBox;
@@ -16,7 +17,10 @@ public class MultiplayerGameView extends VBox {
     public HighscoreView highscoreView1;
     public HighscoreView highscoreView2;
     public ButtonView buttonView;
+
+    public Button highscore;
     public Label currentPlayer;
+    public Label winner;
     public MultiplayerGameView(){
         this.getStylesheets().add(getClass().getResource("/presentation/view/style.css").toExternalForm());
         HBox game = new HBox();
@@ -26,7 +30,9 @@ public class MultiplayerGameView extends VBox {
         text.getStyleClass().add("name-label");
         Label text2 = new Label("Winner:");
         text2.getStyleClass().add("name-label");
-        Label winner = new Label();
+        highscore = new Button("Highscore Table");
+        highscore.setVisible(false);
+        winner = new Label();
         winner.getStyleClass().add("name-label");
 
         this.highscoreView1 = new HighscoreView();
@@ -41,7 +47,7 @@ public class MultiplayerGameView extends VBox {
 
 
         this.setAlignment(Pos.CENTER); // Center the content vertically
-        this.getChildren().addAll(text,currentPlayer,game,text2,winner);
+        this.getChildren().addAll(text,currentPlayer,game,text2,winner,highscore);
     }
 
     public void blinkBackground() {

@@ -4,10 +4,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Scanner;
+import java.util.*;
+
 import business.data.Highscore;
 
 public class HighscoreVerwalter {
@@ -18,16 +16,16 @@ public class HighscoreVerwalter {
         int entryCounter = 0;
         File file;
         if (singlePlayer) {
-            file = new File("HighscoreListe\\1SP\\HighscoreTabelle.txt");
+            file = new File("src\\resources\\HighscoreListen\\1SP\\HighscoreTabelle.txt");
         } else {
-            file = new File("HighscoreListe\\2SP\\HighscoreTabelle.txt");
+            file = new File("src\\resources\\HighscoreListen\\2SP\\HighscoreTabelle.txt");
         }
 
         LinkedList<Highscore> liste = new LinkedList();
 
         try {
             Scanner scan = new Scanner(file);
-            if (scan.nextLine().contains("#HighscoreTabelle 1 Spieler")) {
+            if (scan.nextLine().contains("#HighscoreTabelle 1 Spieler") || scan.nextLine().contains("#HighscoreTabelle 2 Spieler")) {
                 System.out.println("True");
 
                 while(scan.hasNextLine()) {
@@ -87,9 +85,9 @@ public class HighscoreVerwalter {
         try {
             FileWriter newFileVersion;
             if (singlePlayer) {
-                newFileVersion = new FileWriter("HighscoreListe\\1SP\\HighscoreTabelle.txt");
+                newFileVersion = new FileWriter("src\\resources\\HighscoreListen\\1SP\\HighscoreTabelle.txt");
             } else {
-                newFileVersion = new FileWriter("HighscoreListe\\2SP\\HighscoreTabelle.txt");
+                newFileVersion = new FileWriter("src\\resources\\HighscoreListen\\1SP\\HighscoreTabelle.txt");
             }
 
             newFileVersion.write("#HighscoreTabelle 1 Spieler\n");
@@ -120,10 +118,10 @@ public class HighscoreVerwalter {
         try {
             FileWriter newFileVersion;
             if (singlePlayer) {
-                newFileVersion = new FileWriter("HighscoreListe\\1SP\\HighscoreTabelle.txt");
+                newFileVersion = new FileWriter("src\\resources\\HighscoreListen\\1SP\\HighscoreTabelle.txt");
                 newFileVersion.write("#HighscoreTabelle 1 Spieler\n");
             } else {
-                newFileVersion = new FileWriter("HighscoreListe\\2SP\\HighscoreTabelle.txt");
+                newFileVersion = new FileWriter("src\\resources\\HighscoreListen\\1SP\\HighscoreTabelle.txt");
                 newFileVersion.write("#HighscoreTabelle 2 Spieler\n");
             }
 
@@ -133,5 +131,43 @@ public class HighscoreVerwalter {
             var4.printStackTrace();
         }
 
+    }
+
+    public LinkedList<Highscore> showListe(boolean singlePlayer) {
+        int entryCounter = 0;
+        File file;
+        if (singlePlayer) {
+            file = new File("src\\resources\\HighscoreListen\\1SP\\HighscoreTabelle.txt");
+        } else {
+            file = new File("src\\resources\\HighscoreListen\\2SP\\HighscoreTabelle.txt");
+        }
+
+        LinkedList<Highscore> liste = new LinkedList();
+
+
+        try {
+            Scanner scan = new Scanner(file);
+            String first = scan.nextLine();
+            if (Objects.equals(first, "#HighscoreTabelle 1 Spieler") || Objects.equals(first, "#HighscoreTabelle 2 Spieler")) {
+                System.out.println("True");
+
+                while (scan.hasNextLine()) {
+                    if (scan.nextLine().contains("#ENTRY")) {
+                        ++entryCounter;
+                        String scoreDaten = scan.nextLine();
+                        String[] nameScoreSplit = scoreDaten.split("--");
+                        Highscore highscoreEintrag = new Highscore(nameScoreSplit[0], Integer.valueOf(nameScoreSplit[1]));
+                        liste.add(highscoreEintrag);
+                    } else {
+                        System.out.println("True End");
+                        System.out.println(scan.nextLine());
+                    }
+                }
+                return liste;
+            }
+        } catch (FileNotFoundException var11) {
+            System.out.println("Something bad happened");
+        }
+        return liste;
     }
 }

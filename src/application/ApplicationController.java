@@ -1,7 +1,9 @@
 package application;
 
+import business.data.Highscore;
 import business.data.Kartenset;
 import business.data.Player;
+import business.services.HighscoreVerwalter;
 import business.services.KartenVerwalter;
 import business.services.MultiplayerGame;
 import business.services.SoloGame;
@@ -14,6 +16,8 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import presentation.controller.*;
 import presentation.view.*;
+
+import java.util.LinkedList;
 
 public class ApplicationController {
 
@@ -123,6 +127,50 @@ public class ApplicationController {
 
     public void transitionToHighscore(){
         this.root.getChildren().clear();
+
+    }
+
+    public void transitionToHighscore1(){
+        this.root.getChildren().clear();
+
+        HighscoreVerwalter htest = new HighscoreVerwalter();
+
+        LinkedList<Highscore> highscores = new LinkedList<>();
+        highscores= htest.showListe(true);
+
+        Highscore1PlayerView highscore1PlayerView = new Highscore1PlayerView();
+        highscore1PlayerView.setMaxWidth(500);
+        highscore1PlayerView.getStyleClass().add("Highscore-SinglePlayer-view");
+
+        HighscoreController1 highscoreController= new HighscoreController1(highscore1PlayerView, this);
+        highscoreController.addHighScore( highscores= htest.showListe(true));
+
+        root.getChildren().addAll(navigationView, highscore1PlayerView);
+
+        Scene gameScene = primaryStage.getScene();
+        this.primaryStage.setScene(gameScene);
+
+    }
+
+    public void transitionToHighscore2(){
+        this.root.getChildren().clear();
+
+        HighscoreVerwalter htest = new HighscoreVerwalter();
+
+        LinkedList<Highscore> highscores = new LinkedList<>();
+        highscores= htest.showListe(false);
+
+        Highscore2PlayerView highscore2PlayerView = new Highscore2PlayerView();
+        highscore2PlayerView.setMaxWidth(500);
+        highscore2PlayerView.getStyleClass().add("Highscore-2-Spieler-view");
+
+        HighscoreController2 highscoreController2= new HighscoreController2(highscore2PlayerView, this);
+        highscoreController2.addHighScore( highscores= htest.showListe(false));
+
+        root.getChildren().addAll(navigationView, highscore2PlayerView);
+
+        Scene gameScene = primaryStage.getScene();
+        this.primaryStage.setScene(gameScene);
 
     }
 

@@ -30,6 +30,7 @@ public class MultiplayerGameController {
         handleCardFinished();
         handleHighscoreUpdate();
         handleCardReset();
+        handleWinningPlayer();
 
         //Binding for currentPlayer
         multiplayerGameView.currentPlayer.textProperty().bind(multiplayerGame.currentPlayerProperty);
@@ -49,12 +50,27 @@ public class MultiplayerGameController {
         }
     }
 
+    private void handleWinningPlayer(){
+        this.multiplayerGame.winningPlayerProperty.addListener((observable, oldValue, newValue) -> {
+            this.multiplayerGameView.winner.setText(newValue);
+            this.multiplayerGameView.highscore.setVisible(true);
+            handleHighscoreButton();
+        });
+    }
+
+    private void handleHighscoreButton(){
+        this.multiplayerGameView.highscore.setOnMouseClicked(event -> {
+            controller.transitionToHighscore2();
+        });
+    }
+
     private void handleCardReset(){
         this.multiplayerGame.cardReset.addListener((observable, oldValue, newValue) -> {
             firstCardSelect.getStyleClass().remove("selected");
             multiplayerGameView.buttonView.getChildren().get((Integer) newValue).getStyleClass().remove("selected");
         });
     }
+
 
     private void handleCardSelected(){
         this.multiplayerGame.cardSelected.addListener((observable, oldValue, newValue) -> {
