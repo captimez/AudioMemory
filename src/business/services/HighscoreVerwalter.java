@@ -16,16 +16,17 @@ public class HighscoreVerwalter {
         int entryCounter = 0;
         File file;
         if (singlePlayer) {
-            file = new File("src\\resources\\HighscoreListen\\1SP\\HighscoreTabelle.txt");
+            file = new File("src/resources/HighscoreListen/1SP/HighscoreTabelle.txt");
         } else {
-            file = new File("src\\resources\\HighscoreListen\\2SP\\HighscoreTabelle.txt");
+            file = new File("src/resources/HighscoreListen/2SP/HighscoreTabelle.txt");
         }
 
         LinkedList<Highscore> liste = new LinkedList();
 
         try {
             Scanner scan = new Scanner(file);
-            if (scan.nextLine().contains("#HighscoreTabelle 1 Spieler") || scan.nextLine().contains("#HighscoreTabelle 2 Spieler")) {
+            String first = scan.nextLine();
+            if (Objects.equals(first, "#HighscoreTabelle 1 Spieler") || Objects.equals(first, "#HighscoreTabelle 2 Spieler")) {
                 System.out.println("True");
 
                 while(scan.hasNextLine()) {
@@ -85,9 +86,9 @@ public class HighscoreVerwalter {
         try {
             FileWriter newFileVersion;
             if (singlePlayer) {
-                newFileVersion = new FileWriter("src\\resources\\HighscoreListen\\1SP\\HighscoreTabelle.txt");
+                newFileVersion = new FileWriter("src/resources/HighscoreListen/1SP/HighscoreTabelle.txt");
             } else {
-                newFileVersion = new FileWriter("src\\resources\\HighscoreListen\\1SP\\HighscoreTabelle.txt");
+                newFileVersion = new FileWriter("src/resources/HighscoreListen/2SP/HighscoreTabelle.txt");
             }
 
             newFileVersion.write("#HighscoreTabelle 1 Spieler\n");
@@ -137,9 +138,11 @@ public class HighscoreVerwalter {
         int entryCounter = 0;
         File file;
         if (singlePlayer) {
-            file = new File("src\\resources\\HighscoreListen\\1SP\\HighscoreTabelle.txt");
+            file = new File("src/resources/HighscoreListen/1SP/HighscoreTabelle.txt");
+            System.out.println("singelplayer");
         } else {
-            file = new File("src\\resources\\HighscoreListen\\2SP\\HighscoreTabelle.txt");
+            file = new File("src/resources/HighscoreListen/2SP/HighscoreTabelle.txt");
+            System.out.println("multiplayer");
         }
 
         LinkedList<Highscore> liste = new LinkedList();
@@ -165,7 +168,8 @@ public class HighscoreVerwalter {
                 }
                 return liste;
             }
-        } catch (FileNotFoundException var11) {
+        } catch (Exception e) {
+            e.printStackTrace();
             System.out.println("Something bad happened");
         }
         return liste;

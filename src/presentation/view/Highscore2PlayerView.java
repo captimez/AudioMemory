@@ -26,11 +26,14 @@ public class Highscore2PlayerView extends VBox {
     public Highscore2PlayerView() {
     //    this.observableList = FXCollections.observableArrayList(highScores);
     //    this.listView = new ListView<>(observableList);
+        this.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+
         this.nameScoreLabel = new Label();
         this.nameScoreLabel.setText("Name - Score");
 
         this.listView = new ListView<>();
         this.listView.setCellFactory(param -> new HighscoreCell());
+        this.listView.getStyleClass().add("listview");
 
         this.switch1PlayerButton = new Button();
         this.switch1PlayerButton.setText("Einzelspieler Tabelle");

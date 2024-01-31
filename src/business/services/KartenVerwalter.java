@@ -15,7 +15,7 @@ public class KartenVerwalter {
 
     public Kartenset erstelleKartenset(int kartenPackNummer) {
         System.out.println("kartenpack nummer "+ kartenPackNummer);
-        File kartenSammler = new File("src\\resources\\Audio\\Sounds\\Kartenpaket\\" + kartenPackNummer + "\\");
+        File kartenSammler = new File("src/resources/Audio/Sounds/Kartenpaket/" + kartenPackNummer + "/");
         String name = "unbekannt";
         LinkedList<Karte> karten = new LinkedList();
         switch (kartenPackNummer) {

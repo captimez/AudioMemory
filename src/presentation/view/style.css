@@ -77,6 +77,23 @@
     -fx-background-color: #FFA500;
 }
 
+.listview {
+    -fx-background-color: #000000; /* Hintergrundfarbe */
+    -fx-border-color: #f0f0f0; /* Randfarbe */
+    -fx-border-width: 1px; /* Randbreite */
+    -fx-padding: 10px; /* Innenabstand */
+    -fx-font-size: 14px; /* Schriftgröße */
+}
+
+.listview .list-cell {
+    -fx-background-color: #FFA500; /* Dunkelgrauer Hintergrund für Zellen */
+    -fx-border-color: #444444; /* Dunkelgrauer Rand für Zellen */
+    -fx-border-width: 1px;
+    -fx-text-fill: #ffffff; /* Weiße Textfarbe */
+    -fx-font-family: ARCADECLASSIC; /* Arcade-ähnliche Schriftart */
+    -fx-font-size: 20px;
+}
+
 .comboBox {
     -fx-font-family: ARCADECLASSIC;
     -fx-font-size: 18; /* Adjusted font size */

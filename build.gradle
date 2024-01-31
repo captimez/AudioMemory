@@ -41,7 +41,7 @@ javafx {
 dependencies {
     // Your might already have other librarires/dependencies here you should leave them
     // as they are and just add your on new line
-    implementation fileTree(include: ['*.jar'], dir: '/libs')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
 
 application {

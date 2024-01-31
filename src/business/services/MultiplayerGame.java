@@ -11,7 +11,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 
 public class MultiplayerGame {
-
+    public HighscoreVerwalter highscoreVerwalter;
     public Player player1;
     public Player player2;
     Player currentPlayer;
@@ -70,6 +70,7 @@ public class MultiplayerGame {
         this.player2 = player2;
         currentPlayer = player1;
         setCurrentPlayerProperty(currentPlayer.getName());
+        highscoreVerwalter = new HighscoreVerwalter();
     }
 
     private void initSpielfeld(int groesse, LinkedList<Karte> cards) {
@@ -125,6 +126,7 @@ public class MultiplayerGame {
                     setHighscoreProperty1(Integer.toString(currentPlayer.score.comboRechner(true)));
                     this.finished = true;
                     winningPlayer = calculateWinningPlayer();
+                    highscoreVerwalter.highscoreEintrag(winningPlayer.getName(),winningPlayer.score.gesammtPunkte,false);
                     setWinningPlayerProperty(winningPlayer.getName()+ ": "+ winningPlayer.score.gesammtPunkte);
                     return "finished";
                 }
