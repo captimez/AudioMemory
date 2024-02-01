@@ -45,7 +45,10 @@ public class SoloGame {
 
     public void setCardSelected(int firstCardIndex) {
         this.cardSelected.set(firstCardIndex);
+
     }
+    public SimpleIntegerProperty finalScoreProperty = new SimpleIntegerProperty(0);
+    public void setFinalScoreProperty(int score){ this.finalScoreProperty.set(score); }
 
     public SoloGame(int kartenSetIndex, Player player, int spielfeldGroesse){
         this.ersteKarte = null;
@@ -79,26 +82,26 @@ public class SoloGame {
     int secondCardIndex;
     public String playerClick(int x){
 
-        int i = 0;
+        /*int i = 0;
         for(Karte k: spielfeld){
             System.out.println(i+ ": "+ k.getSoundName()+ " " + k.isIstEntfehrnt());
             i++;
-        }
+        }*/
 
         if(ersteKarte == null) {
-            System.out.println(spielfeld);
             this.ersteKarte = spielfeld.get(x);
             this.audioPlayer.playKartenSound(ersteKarte);
             this.lastCardIndex = x;
             setCardSelected(x);
+            System.out.println("cardselected: "+cardSelected.get());
             firstCardIndex =x ;
             return "clicked card1";
         }
         else{
             if(x == lastCardIndex){
+                this.audioPlayer.playKartenSound(ersteKarte);
                 return "already selected";
             }
-            setCardSelected(x);
             secondCardIndex = x;
             this.zweiteKarte =spielfeld.get(x);
             this.audioPlayer.playKartenSound(zweiteKarte);
@@ -113,12 +116,22 @@ public class SoloGame {
                 }
                 this.ersteKarte = null;
                 this.zweiteKarte = null;
+                this.firstCardIndex = 0;
+                this.secondCardIndex = 0;
+                this.lastCardIndex = 0;
                 setHighscoreProperty(Integer.toString(score.comboRechner(true)));
                 return "Score: ";
             }else{
                 this.ersteKarte = null;
                 this.zweiteKarte = null;
+                setCardReset(firstCardIndex);
                 setCardReset(secondCardIndex);
+                System.out.println("cardreset : "+firstCardIndex);
+                System.out.println("cardreset : "+secondCardIndex);
+                this.firstCardIndex = 0;
+                this.secondCardIndex = 0;
+                this.lastCardIndex = 0;
+                setCardReset(21);
                 setHighscoreProperty(Integer.toString(score.comboRechner(false)));
                 return "Score: ";
             }

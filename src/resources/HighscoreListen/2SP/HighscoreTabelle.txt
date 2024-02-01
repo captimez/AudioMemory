@@ -4,6 +4,10 @@ Unbekannt--670
 #ENTRY
 Unbenannt--555
 #ENTRY
+Tom--320
+#ENTRY
+Gina--165
+#ENTRY
 Tim--135
 #ENTRY
 Unbekannt--100
@@ -12,4 +16,4 @@ Unbekannt--70
 #ENTRY
 Neu Dazu--50
 #TOTALENTRYS
-6
+8

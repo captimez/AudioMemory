@@ -36,7 +36,9 @@ public class SoloGameController {
             if (node instanceof Button) {
                 Button button = (Button) node;
                 button.setOnMouseClicked(event -> {
-                    this.soloGame.playerClick(this.buttonView.getChildren().indexOf(button));
+                    if( this.soloGame.playerClick(this.buttonView.getChildren().indexOf(button)).equals("finished")){
+                        soloGameView.highscore.setVisible(true);
+                    }
 
                 });
                 System.out.print(this.buttonView.getChildren().indexOf(button));
@@ -46,20 +48,23 @@ public class SoloGameController {
 
     private void handleCardReset(){
         this.soloGame.cardReset.addListener((observable, oldValue, newValue) -> {
-            firstCardSelect.getStyleClass().remove("selected");
-            buttonView.getChildren().get((Integer) newValue).getStyleClass().remove("selected");
+            if((Integer)newValue!=21) {
+                buttonView.getChildren().get((Integer) newValue).getStyleClass().clear();
+                buttonView.getChildren().get((Integer) newValue).getStyleClass().add("button");
+            }
         });
     }
 
     private void handleCardSelected(){
-        this.soloGame.cardSelected.addListener((observable, oldValue, newValue) -> {
-            System.out.println(buttonView.getChildren().get((Integer) newValue).getStyleClass());
-            buttonView.getChildren().get((Integer) newValue).getStyleClass().add("selected");
-            if(firstCardSelect == null){
-                firstCardSelect = buttonView.getChildren().get((Integer) newValue);
+        this.soloGame.cardSelected.addListener((observable,oldValue, newValue) -> {
+            if((Integer)newValue == 21){
+
             }else{
-                firstCardSelect =buttonView.getChildren().get((Integer) oldValue);
+                System.out.println(buttonView.getChildren().get((Integer) this.soloGame.cardSelected.get()).getStyleClass());
+                buttonView.getChildren().get((Integer) this.soloGame.cardSelected.get()).getStyleClass().add("selected");
             }
+
+
         });
     }
 

@@ -7,6 +7,7 @@ import javafx.scene.control.ListCell;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 
 public class HighscoreCell extends ListCell<Highscore> {
     Label name = new Label();
@@ -15,10 +16,12 @@ public class HighscoreCell extends ListCell<Highscore> {
 
 
     HighscoreCell(){
-
+        this.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
         HBox hbox = new HBox();
         name.setMinWidth(100);
         score.setMinWidth(100);
+        name.getStyleClass().add("listview-label");
+        score.getStyleClass().add("listview-label");
 
         spacer.setPrefWidth(20);
         hbox.getChildren().addAll(name,spacer,score);
@@ -36,6 +39,7 @@ public class HighscoreCell extends ListCell<Highscore> {
         } else {
             this.name.setText(item.getSpielerName());
             this.score.setText(""+item.getPunkte());
+
         }
     }
 }

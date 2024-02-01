@@ -30,6 +30,7 @@ public class Highscore2PlayerView extends VBox {
 
         this.nameScoreLabel = new Label();
         this.nameScoreLabel.setText("Name - Score");
+        this.nameScoreLabel.getStyleClass().add("listview-label");
 
         this.listView = new ListView<>();
         this.listView.setCellFactory(param -> new HighscoreCell());
@@ -37,9 +38,11 @@ public class Highscore2PlayerView extends VBox {
 
         this.switch1PlayerButton = new Button();
         this.switch1PlayerButton.setText("Einzelspieler Tabelle");
+        this.switch1PlayerButton.getStyleClass().add("confirm-button");
 
         this.resetButton = new Button();
         this.resetButton.setText("Reset Liste");
+        this.resetButton.getStyleClass().add("confirm-button");
 
         this.buttonsHBox = new HBox(switch1PlayerButton, resetButton);
 

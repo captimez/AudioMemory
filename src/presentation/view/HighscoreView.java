@@ -21,7 +21,7 @@ public class HighscoreView extends VBox {
         // Apply CSS styles
         this.getStyleClass().add("highscore-view");
         this.score.getStyleClass().add("score-label");
-        playerName.getStyleClass().add("name-label");
+        playerName.getStyleClass().add("score-points-label");
         this.scorePoints.getStyleClass().add("score-points-label");
 
         this.getChildren().addAll(playerName,score, scorePoints);

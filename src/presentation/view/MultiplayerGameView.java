@@ -27,10 +27,11 @@ public class MultiplayerGameView extends VBox {
         Label text = new Label("Current Player:");
         currentPlayer = new Label("current");
         currentPlayer.getStyleClass().add("name-label");
-        text.getStyleClass().add("name-label");
+        text.getStyleClass().add("score-label");
         Label text2 = new Label("Winner:");
-        text2.getStyleClass().add("name-label");
+        text2.getStyleClass().add("score-label");
         highscore = new Button("Highscore Table");
+        highscore.getStyleClass().add("confirm-button");
         highscore.setVisible(false);
         winner = new Label();
         winner.getStyleClass().add("name-label");

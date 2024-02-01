@@ -111,9 +111,10 @@ public class MultiplayerGame {
         }
         else{
             if(x == lastCardIndex){
+                this.audioPlayer.playKartenSound(ersteKarte);
                 return "already selected";
             }
-            setCardSelected(x);
+
             secondCardIndex = x;
             this.zweiteKarte =spielfeld.get(x);
             this.audioPlayer.playKartenSound(zweiteKarte);
@@ -123,7 +124,8 @@ public class MultiplayerGame {
 
 
                 if(getSpielfeldCardCount() == 0){
-                    setHighscoreProperty1(Integer.toString(currentPlayer.score.comboRechner(true)));
+                    if(currentPlayer == player1){setHighscoreProperty1(Integer.toString(currentPlayer.score.comboRechner(true)));}
+                    else{ setHighscoreProperty2(Integer.toString(currentPlayer.score.comboRechner(true))); }
                     this.finished = true;
                     winningPlayer = calculateWinningPlayer();
                     highscoreVerwalter.highscoreEintrag(winningPlayer.getName(),winningPlayer.score.gesammtPunkte,false);
@@ -143,6 +145,7 @@ public class MultiplayerGame {
                 this.ersteKarte = null;
                 this.zweiteKarte = null;
                 setCardReset(secondCardIndex);
+                setCardReset(firstCardIndex);
 
                 if(currentPlayer == player1){
                     setHighscoreProperty1(Integer.toString(currentPlayer.score.comboRechner(false)));
@@ -152,6 +155,8 @@ public class MultiplayerGame {
                     setHighscoreProperty2(Integer.toString(currentPlayer.score.comboRechner(false)));
                     currentPlayer = player1;
                 }
+
+                setCardReset(21);
 
                 setCurrentPlayerProperty(currentPlayer.getName());
 

@@ -66,8 +66,9 @@ public class MultiplayerGameController {
 
     private void handleCardReset(){
         this.multiplayerGame.cardReset.addListener((observable, oldValue, newValue) -> {
-            firstCardSelect.getStyleClass().remove("selected");
-            multiplayerGameView.buttonView.getChildren().get((Integer) newValue).getStyleClass().remove("selected");
+            if((Integer)newValue!=21) {
+                multiplayerGameView.buttonView.getChildren().get((Integer) newValue).getStyleClass().remove("selected");
+            }
         });
     }
 

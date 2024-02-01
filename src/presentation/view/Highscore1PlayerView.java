@@ -32,6 +32,7 @@ public class Highscore1PlayerView extends VBox {
 
         this.nameScoreLabel = new Label();
         this.nameScoreLabel.setText("Name - Score");
+        this.nameScoreLabel.getStyleClass().add("listview-label");
 
         this.listView = new ListView<>();
         this.listView.setCellFactory(param -> new HighscoreCell());
