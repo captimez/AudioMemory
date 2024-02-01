@@ -35,7 +35,8 @@ public class SoloGame {
     public void setCardFinished(int cardFinishedIndex){
         this.cardFinished.set(cardFinishedIndex);
     }
-
+    public SimpleStringProperty comboProperty = new SimpleStringProperty("1x");
+    public void setComboProperty(String newValue){ this.comboProperty.set(newValue);}
     public SimpleIntegerProperty cardReset = new SimpleIntegerProperty(21);
     public void setCardReset(int cardResetIndex){
         this.cardReset.set(cardResetIndex);
@@ -120,6 +121,7 @@ public class SoloGame {
                 this.secondCardIndex = 0;
                 this.lastCardIndex = 0;
                 setHighscoreProperty(Integer.toString(score.comboRechner(true)));
+                setComboProperty(score.comboPointer+"x");
                 return "Score: ";
             }else{
                 this.ersteKarte = null;
@@ -133,6 +135,7 @@ public class SoloGame {
                 this.lastCardIndex = 0;
                 setCardReset(21);
                 setHighscoreProperty(Integer.toString(score.comboRechner(false)));
+                setComboProperty(score.comboPointer+"x");
                 return "Score: ";
             }
 

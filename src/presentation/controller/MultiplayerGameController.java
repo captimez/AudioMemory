@@ -2,9 +2,15 @@ package presentation.controller;
 
 import application.ApplicationController;
 import business.services.MultiplayerGame;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.util.Duration;
 import presentation.view.MultiplayerGameView;
+
+
 
 public class MultiplayerGameController {
     MultiplayerGameView multiplayerGameView;
@@ -26,6 +32,7 @@ public class MultiplayerGameController {
     }
 
     private void init(){
+        this.multiplayerGameView.combo.textProperty().bind(multiplayerGame.comboProperty);
         handleCardSelected();
         handleCardFinished();
         handleHighscoreUpdate();

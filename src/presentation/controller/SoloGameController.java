@@ -28,6 +28,7 @@ public class SoloGameController {
     }
 
     private void init(){
+        soloGameView.combo.textProperty().bind(soloGame.comboProperty);
         handleCardSelected();
         handleCardFinished();
         handleHighscoreUpdate();

@@ -19,6 +19,7 @@ public class MultiplayerGameView extends VBox {
     public ButtonView buttonView;
 
     public Button highscore;
+    public Label combo;
     public Label currentPlayer;
     public Label winner;
     public MultiplayerGameView(){
@@ -30,6 +31,8 @@ public class MultiplayerGameView extends VBox {
         text.getStyleClass().add("score-label");
         Label text2 = new Label("Winner:");
         text2.getStyleClass().add("score-label");
+        combo = new Label("1x");
+        combo.getStyleClass().add("name-label");
         highscore = new Button("Highscore Table");
         highscore.getStyleClass().add("confirm-button");
         highscore.setVisible(false);
@@ -48,7 +51,7 @@ public class MultiplayerGameView extends VBox {
 
 
         this.setAlignment(Pos.CENTER); // Center the content vertically
-        this.getChildren().addAll(text,currentPlayer,game,text2,winner,highscore);
+        this.getChildren().addAll(text,currentPlayer,combo,game,text2,winner,highscore);
     }
 
     public void blinkBackground() {

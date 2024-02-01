@@ -46,6 +46,8 @@ public class MultiplayerGame {
     }
 
     public SimpleIntegerProperty cardSelected = new SimpleIntegerProperty(21);
+    public SimpleStringProperty comboProperty = new SimpleStringProperty("1x");
+    public void setComboProperty(String newValue){ this.comboProperty.set(newValue);}
 
     public void setCardSelected(int firstCardIndex) {
         this.cardSelected.set(firstCardIndex);
@@ -136,12 +138,15 @@ public class MultiplayerGame {
                 this.zweiteKarte = null;
 
 
+                //Set score winning
                 if(currentPlayer == player1){setHighscoreProperty1(Integer.toString(currentPlayer.score.comboRechner(true)));}
                 else{ setHighscoreProperty2(Integer.toString(currentPlayer.score.comboRechner(true))); }
-
+                setComboProperty(currentPlayer.score.comboPointer+"x");
 
                 return "Score: ";
             }else{
+
+                //Set Score losing
                 this.ersteKarte = null;
                 this.zweiteKarte = null;
                 setCardReset(secondCardIndex);
@@ -157,6 +162,7 @@ public class MultiplayerGame {
                 }
 
                 setCardReset(21);
+                setComboProperty(currentPlayer.score.comboPointer+"x");
 
                 setCurrentPlayerProperty(currentPlayer.getName());
 

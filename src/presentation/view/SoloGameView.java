@@ -3,6 +3,7 @@ package presentation.view;
 import javafx.animation.*;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.HBox;
@@ -16,6 +17,7 @@ public class SoloGameView extends VBox {
     public ButtonView buttonView;
 
     public Button highscore;
+    public Label combo;
 
     public SoloGameView() {
         this.highscoreView = new HighscoreView();
@@ -24,13 +26,15 @@ public class SoloGameView extends VBox {
         highscore = new Button("Highscore Table");
         highscore.getStyleClass().add("confirm-button");
         highscore.setVisible(false);
+        combo = new Label();
+        combo.getStyleClass().add("name-label");
 
         // Set Hgrow for HighscoreView and ButtonView to ALWAYS
         VBox.setVgrow(highscoreView, Priority.ALWAYS);
         VBox.setVgrow(buttonView, Priority.ALWAYS);
 
         this.setAlignment(Pos.CENTER); // Center the content vertically
-        this.getChildren().addAll(highscoreView, buttonView,highscore);
+        this.getChildren().addAll(highscoreView,combo, buttonView,highscore);
 
     }
 
