@@ -26,6 +26,7 @@ public class SoloGame {
     ArrayList<Karte> spielfeld = new ArrayList<>();
     boolean finished;
     KartenVerwalter kv = new KartenVerwalter();
+    HighscoreVerwalter highscoreVerwalter = new HighscoreVerwalter();
 
     public SimpleStringProperty highscoreProperty = new SimpleStringProperty("0");
     public void setHighscoreProperty(String highscore){
@@ -113,7 +114,9 @@ public class SoloGame {
 
                 if(getSpielfeldCardCount() == 0){
                     this.finished = true;
+                    System.out.print("player final score: "+ this.score.gesammtPunkte);
                     setHighscoreProperty(Integer.toString(score.comboRechner(true)));
+                    highscoreVerwalter.highscoreEintrag(this.player.getName(),this.score.gesammtPunkte,true);
                     return "finished";
                 }
                 this.ersteKarte = null;

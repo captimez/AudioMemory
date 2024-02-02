@@ -15,5 +15,7 @@ Unbekannt--100
 Unbekannt--70
 #ENTRY
 Neu Dazu--50
+#ENTRY
+Tim--0
 #TOTALENTRYS
-8
+9

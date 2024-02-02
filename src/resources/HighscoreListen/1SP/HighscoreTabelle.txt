@@ -1,5 +1,7 @@
 #HighscoreTabelle 1 Spieler
 #ENTRY
+Tim--2600
+#ENTRY
 Unbekannt--670
 #ENTRY
 Unbenannt--555
@@ -12,4 +14,4 @@ Unbekannt--70
 #ENTRY
 Neu Dazu--50
 #TOTALENTRYS
-6
+7
