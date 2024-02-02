@@ -33,6 +33,7 @@ public class SoloGameController {
         handleCardFinished();
         handleHighscoreUpdate();
         handleCardReset();
+        handleHighscoreButton();
         for (Node node : this.buttonView.getChildren()) {
             if (node instanceof Button) {
                 Button button = (Button) node;
@@ -46,7 +47,11 @@ public class SoloGameController {
             }
         }
     }
-
+    private void handleHighscoreButton(){
+        this.soloGameView.highscore.setOnMouseClicked(event -> {
+            controller.transitionToHighscore1();
+        });
+    }
     private void handleCardReset(){
         this.soloGame.cardReset.addListener((observable, oldValue, newValue) -> {
             if((Integer)newValue!=21) {

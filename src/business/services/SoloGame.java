@@ -83,11 +83,11 @@ public class SoloGame {
     int secondCardIndex;
     public String playerClick(int x){
 
-        /*int i = 0;
+        int i = 0;
         for(Karte k: spielfeld){
             System.out.println(i+ ": "+ k.getSoundName()+ " " + k.isIstEntfehrnt());
             i++;
-        }*/
+        }
 
         if(ersteKarte == null) {
             this.ersteKarte = spielfeld.get(x);
@@ -113,6 +113,7 @@ public class SoloGame {
 
                 if(getSpielfeldCardCount() == 0){
                     this.finished = true;
+                    setHighscoreProperty(Integer.toString(score.comboRechner(true)));
                     return "finished";
                 }
                 this.ersteKarte = null;
